@@ -10,7 +10,7 @@ import { present } from '@ionic/core/dist/types/utils/overlays';
 })
 export class RecuPage implements OnInit {
 
-  constructor(public alertController: AlertController) { }
+  constructor(private alertController: AlertController) { }
 
   ngOnInit() {
   }

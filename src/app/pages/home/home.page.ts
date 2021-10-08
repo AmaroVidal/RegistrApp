@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,8 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
-  constructor(private router:Router) {}
+  constructor(private router:Router,
+              private alertController: AlertController) {}
   recu(){
     this.router.navigate(['/recu']);
   }
@@ -18,7 +20,30 @@ export class HomePage {
     contra: new FormControl('',[Validators.required,Validators.minLength(3)])
   })
 
-  value(){
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Alert',
+      subHeader: 'Subtitle',
+      message: 'This is an alert message.',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+
+    const { role } = await alert.onDidDismiss();
+    console.log('onDidDismiss resolved with role', role);
+  }
+
+  async value(){
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: '¡Error!',
+      subHeader: 'Usuario o contraseña incorrecta',
+      message: 'Intente nuevamente',
+      buttons: ['OK']
+    });
+
     if(this.usu.controls.nombre.value == 'alumno' && this.usu.controls.contra.value == '123'){
       var datos = 'alumno'
       this.router.navigate(['/inicio',datos]);
@@ -28,7 +53,10 @@ export class HomePage {
       this.router.navigate(['/inicio',datos]);
     }
     else{
-      alert('Error')
+      await alert.present();
+
+      const { role } = await alert.onDidDismiss();
+      console.log('onDidDismiss resolved with role', role);
     }
   }
 }
