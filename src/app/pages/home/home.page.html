@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      RegistrApp
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <img src="/assets/icon/1.jpg" alt="">
+    <ion-card>
+      <form id="formulario" [formGroup]="usu" (ngSubmit)="value()">
+        <ion-item>
+          <ion-label position="stacked">Usuario</ion-label>
+          <ion-input formControlName="nombre"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Contraseña</ion-label>
+          <ion-input formControlName="contra" type="password"></ion-input>
+        </ion-item>
+        <ion-button type="submit" [disabled]="!usu.valid" color="warning" expand="block">Iniciar Session</ion-button>
+      </form>
+    </ion-card>
+    <a (click)="recu()" stlye="cursor:pointer">¿Has olvidado tu contraseña?</a>
+  </div>
+</ion-content>
