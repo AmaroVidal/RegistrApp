@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      RegistrApp
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <img src="/assets/icon/1.jpg" alt="">
+    <ion-card *ngIf="qrData">
+      <ngx-qrcode [elementType]="elementType" [value]="qrData"></ngx-qrcode>
+    </ion-card>
+    <ion-card id="datos">
+      <ion-item>
+        <ion-label>
+          <p>Profesor</p>
+          <h2>Profesor</h2>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>Asignatura</p>
+          <h2>Asignatura</h2>
+        </ion-label>
+      </ion-item>
+    </ion-card>
+    <ion-button (click)="volver()" color="warning">Volver</ion-button>
+  </div>
+</ion-content>

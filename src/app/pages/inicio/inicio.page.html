@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      RegistrApp
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+    <div id="avatar">
+      <ion-chip>
+        <ion-avatar>
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        </ion-avatar>
+        <ion-label>Bienvenido {{user}}</ion-label>
+      </ion-chip>
+    </div>
+  <ion-button id="cerrar" color="warning" (click)="cerrar()" size="small">Cerrar session</ion-button>
+  <div id="container">
+    <img src="/assets/icon/1.jpg" alt="">
+    <ion-card>
+      <ion-item *ngIf="mostrarProfesor()">
+        <ion-button (click)="pagQr()" color="warning" expand="block">Generar codigo QR</ion-button>
+      </ion-item>
+      <ion-item  *ngIf="mostrarAlumno()">
+        <ion-button color="warning" expand="block">Escanear codigo QR</ion-button>
+      </ion-item>
+      <ion-item *ngIf="mostrarProfesor()">
+        <ion-button color="warning" expand="large">Ver lista alumnos</ion-button>
+      </ion-item>
+    </ion-card>
+  </div>
+</ion-content>

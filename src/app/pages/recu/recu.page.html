@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Registrapp
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <img src="/assets/icon/1.jpg" alt="">
+    <ion-card>
+      <form [formGroup]="persona" (ngSubmit)="val()">
+        <ion-card-header>
+          <ion-card-title>Recuperar Contraseña</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+            <ion-label position="stacked">Usuario</ion-label>
+            <ion-input formControlName="usuario"></ion-input>
+          </ion-item>
+          <ion-button [disabled]="!persona.valid" type="submit" color="warning" expand="block">Recuperar Contraseña</ion-button>
+        </ion-card-content>
+      </form>
+    </ion-card>
+    <ion-button color="warning" [routerLink]="['/home']">Volver</ion-button>
+  </div>
+</ion-content>
