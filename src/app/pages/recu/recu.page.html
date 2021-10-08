@@ -17,8 +17,8 @@
         </ion-card-header>
         <ion-card-content>
           <ion-item>
-            <ion-label position="stacked">Usuario</ion-label>
-            <ion-input formControlName="usuario"></ion-input>
+            <ion-label position="stacked">Correo</ion-label>
+            <ion-input placeholder="Ingrese su Correo asociado a la cuenta" type="email" formControlName="usuario"></ion-input>
           </ion-item>
           <ion-button [disabled]="!persona.valid" type="submit" color="warning" expand="block">Recuperar Contraseña</ion-button>
         </ion-card-content>

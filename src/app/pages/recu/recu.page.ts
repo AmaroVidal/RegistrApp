@@ -16,7 +16,7 @@ export class RecuPage implements OnInit {
   }
 
   persona = new FormGroup({
-    usuario: new FormControl('',[Validators.required,Validators.minLength(3)])
+    usuario: new FormControl('',[Validators.required,Validators.email])
   });
   async val(){
     var nombre = this.persona.controls.usuario.value;
@@ -24,7 +24,7 @@ export class RecuPage implements OnInit {
       cssClass: 'my-custom-class',
       header: '¡Succes!',
       subHeader: nombre,
-      message: 'Su nueva contraseña se actualizo correctamente',
+      message: 'Se ah enviado un correo para cambiar la contraseña',
       buttons: ['OK']
     })
     await alert.present();

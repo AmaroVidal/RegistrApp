@@ -7,13 +7,17 @@
     
   }
 
-#container ion-card ion-card-header{
+#container ion-card ion-card-header ion-card-title{
     font-family: cursive;
-    font-size: 40px;
+    font-size: 20px;
 }
 #container ion-card ion-card-content ion-item ion-label{
     font-family: cursive;
     font-size: 20px;
+}
+#container ion-card ion-card-content ion-item ion-input{
+    font-family: cursive;
+    font-size: 13px;
 }
 #container ion-button{
     font-family: cursive;
