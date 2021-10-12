@@ -19,22 +19,7 @@ export class HomePage {
     nombre: new FormControl('',[Validators.required,Validators.minLength(3)]),
     contra: new FormControl('',[Validators.required,Validators.minLength(3)])
   })
-
-  async presentAlert() {
-    const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
-      header: 'Alert',
-      subHeader: 'Subtitle',
-      message: 'This is an alert message.',
-      buttons: ['OK']
-    });
-
-    await alert.present();
-
-    const { role } = await alert.onDidDismiss();
-    console.log('onDidDismiss resolved with role', role);
-  }
-
+  
   async value(){
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',

@@ -22,9 +22,9 @@ export class RecuPage implements OnInit {
     var nombre = this.persona.controls.usuario.value;
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: '¡Succes!',
+      header: '¡Éxito!',
       subHeader: nombre,
-      message: 'Se ah enviado un correo para cambiar la contraseña',
+      message: 'Se envio un correo para cambiar la contraseña',
       buttons: ['OK']
     })
     await alert.present();
