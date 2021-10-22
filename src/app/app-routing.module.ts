@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'qr/:valor',
     loadChildren: () => import('./pages/qr/qr.module').then( m => m.QRPageModule)
   },
+  {
+    path: 'p404',
+    loadChildren: () => import('./pages/p404/p404.module').then( m => m.P404PageModule)
+  },
 ];
 
 @NgModule({
