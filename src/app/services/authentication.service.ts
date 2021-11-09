@@ -16,4 +16,30 @@ export class AuthenticationService {
     private platform: Platform,
     private storage: Storage 
   ) { }
+
+  login(nombre, pass){
+    if(nombre == "" && pass==""){
+      this.authStage.next(true);
+      this.router.navigate([''])
+    }else{
+
+    }
+  }
+
+  logout(){
+    this.router.navigate(['home']);
+    this.authStage.next(false);
+  }
+
+  isAuthenticated():boolean{
+    return this.authStage.value;
+  }
+
+
+
+
+
+
+
+
 }

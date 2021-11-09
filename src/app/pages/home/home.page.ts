@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+
 
 @Component({
   selector: 'app-home',
@@ -11,7 +13,8 @@ import { AlertController } from '@ionic/angular';
 export class HomePage {
 
   constructor(private router:Router,
-              private alertController: AlertController) {}
+              private alertController: AlertController,
+              private auth: AuthenticationService) {}
   recu(){
     this.router.navigate(['/recu']);
   }
@@ -20,6 +23,11 @@ export class HomePage {
     contra: new FormControl('',[Validators.required,Validators.minLength(3)])
   })
   
+  ingresar(){
+    alert(this.usu.controls.nombre.value+this.usu.controls.contra.value)
+    this.auth.login(this.usu.controls.nombre.value,this.usu.controls.contra);
+  }
+
   async value(){
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
